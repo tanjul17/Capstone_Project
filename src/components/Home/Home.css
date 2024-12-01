@@ -1,18 +1,96 @@
-.main{
+/* General Styling */
+.main {
     margin: 4vw;
-    text-align: justify;
-    padding: auto;
-    
-}
-.header{
+    padding: 0; /* Reset auto padding */
+    text-align: center; /* Align text to center */
+  }
+  
+  /* Hero Section Styling */
+  .hero-title {
+    background-image: url(https://img.freepik.com/free-photo/3d-rendering-hexagonal-texture-background_23-2150796417.jpg?t=st=1733046422~exp=1733050022~hmac=a9f6bcd9d86bd9bcd9543b2afd90aad433712f69c5b621410b8a8f0ba41d61a9&w=1060); /* Your background image */
+    background-size: cover;
+    background-position: center;
+    padding: 9rem 2rem;
+    color: white;
     text-align: center;
-}
-.StartupEcoSystem,.Scheme{
+    position: relative;
+    z-index: 1;
+  }
+  
+  .hero-title h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+  
+  .hero-title h2 {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  /* Button Styling */
+  .btn-investor, .btn-startup {
+    margin: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    background-color: #28a745; /* Green color */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .btn-investor:hover, .btn-startup:hover {
+    background-color: #218838; /* Darker green on hover */
+  }
+  
+  /* Hero Subtitle and Button Styling */
+  .hero-subtitle, .btn-investor, .btn-startup {
+    position: relative;
+    z-index: 2;
+  }
+  
+  /* Section Styling */
+  .header {
+    text-align: center;
+  }
+  
+  /* Key Initiatives, Scheme, and Startup Ecosystem Styling */
+  .StartupEcoSystem, .Scheme {
     margin: 25px;
     padding: 18px;
-
-}
-.card-body{
+  }
+  
+  .card-body {
     text-align: center;
-
-}
+  }
+  
+  /* Additional Card Styling */
+  .card-body {
+    text-align: center;
+  }
+  
+  /* Adjusted button links in card */
+  .card-body .btn-primary {
+    margin-top: 10px;
+  }
+  
+  /* Spacing Adjustments for Layout */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  /* For Responsive Layout (Optional) */
+  @media (max-width: 768px) {
+    .hero-title h1 {
+      font-size: 2.5rem;
+    }
+    .hero-title h2 {
+      font-size: 1.25rem;
+    }
+    .btn-investor, .btn-startup {
+      padding: 0.5rem 1rem;
+      font-size: 0.9rem;
+    }
+  }
+  

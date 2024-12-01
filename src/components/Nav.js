@@ -1,78 +1,64 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import {useAuth} from "../auth/AuthContext"
+import { useAuth } from "../auth/AuthContext";
+import "./Navbar.css"; // Import the CSS file
 
 const Navbar = () => {
     const { user, logout } = useAuth();
+    const [menuOpen, setMenuOpen] = useState(false); // State for toggling the menu
+
+    const toggleMenu = () => setMenuOpen(!menuOpen); // Function to toggle the menu
 
     return (
-        <nav style={styles.navbar}>
-            <div style={styles.logo}>
-                <Link to="/" style={styles.link}>
-                    MyApp
+        <nav className="navbar">
+            <div className="logo">
+                <span className="icon">↑</span> 
+                <Link to="/" className="link">
+                    Startup Accelerator
                 </Link>
             </div>
-            <div style={styles.navLinks}>
-                <Link to="/" style={styles.link}>
-                    Home
+            <div className={`navLinks ${menuOpen ? "open" : ""}`}>
+                <Link to="/" className="link">
+                    Products
+                </Link>
+                <Link to="/investors" className="link">
+                    For Investors
+                </Link>
+                <Link to="/founders" className="link">
+                    For Founders
+                </Link>
+                <Link to="/resources" className="link">
+                    Resources
+                </Link>
+                <Link to="/events" className="link">
+                    Events
                 </Link>
                 {user ? (
                     <>
-                        <span style={styles.user}>Welcome, {user.name}</span>
-                        <button style={styles.button} onClick={logout}>
+                        <span className="user">Welcome, {user.name}</span>
+                        <button className="button" onClick={logout}>
                             Logout
                         </button>
                     </>
                 ) : (
                     <>
-                        <Link to="/signin" style={styles.link}>
+                        <Link to="/signin" className="signInButton">
                             Sign In
                         </Link>
-                        <Link to="/signup" style={styles.link}>
+                        <Link to="/signup" className="signUpButton">
                             Sign Up
                         </Link>
                     </>
                 )}
             </div>
+            {/* Hamburger Icon for mobile view */}
+            <div className="hamburger" onClick={toggleMenu}>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
         </nav>
     );
-};
-
-const styles = {
-    navbar: {
-        display: "flex",
-        justifyContent: "space-between",
-        alignItems: "center",
-        padding: "10px 20px",
-        backgroundColor: "#333",
-        color: "#fff",
-    },
-    logo: {
-        fontSize: "24px",
-        fontWeight: "bold",
-    },
-    navLinks: {
-        display: "flex",
-        alignItems: "center",
-        gap: "15px",
-    },
-    link: {
-        textDecoration: "none",
-        color: "#fff",
-        fontSize: "18px",
-    },
-    user: {
-        fontSize: "18px",
-        marginRight: "10px",
-    },
-    button: {
-        backgroundColor: "#ff5555",
-        color: "#fff",
-        border: "none",
-        padding: "8px 12px",
-        borderRadius: "4px",
-        cursor: "pointer",
-    },
 };
 
 export default Navbar;
