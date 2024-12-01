@@ -1,146 +1,78 @@
 import React from "react";
-import { useAuth0 } from "@auth0/auth0-react";
-import "../components/nav.css";
+import { Link } from "react-router-dom";
+import {useAuth} from "../auth/AuthContext"
 
-export default function Nav() {
-  const { loginWithRedirect } = useAuth0();
+const Navbar = () => {
+    const { user, logout } = useAuth();
 
-  return (
-    <div>
-      <nav className="navbar navbar-expand-lg bg-body-tertiary">
-        <div className="container-fluid">
-          <a className="navbar-brand" href="/">
-            <img src="./Logo.png" alt="Bootstrap" width="50%" height="auto" />
-          </a>
-          <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
-              <li className="d-flex">
-                <div className="nav-link active" aria-current="page" href="/">
-                  <button id="log" onClick={() => loginWithRedirect()}>
-                    Register LogIn
-                  </button>
-                </div>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
+    return (
+        <nav style={styles.navbar}>
+            <div style={styles.logo}>
+                <Link to="/" style={styles.link}>
+                    MyApp
+                </Link>
+            </div>
+            <div style={styles.navLinks}>
+                <Link to="/" style={styles.link}>
+                    Home
+                </Link>
+                {user ? (
+                    <>
+                        <span style={styles.user}>Welcome, {user.name}</span>
+                        <button style={styles.button} onClick={logout}>
+                            Logout
+                        </button>
+                    </>
+                ) : (
+                    <>
+                        <Link to="/signin" style={styles.link}>
+                            Sign In
+                        </Link>
+                        <Link to="/signup" style={styles.link}>
+                            Sign Up
+                        </Link>
+                    </>
+                )}
+            </div>
+        </nav>
+    );
+};
 
-      <nav className="navbar navbar-expand-lg ">
-        <div className="container-fluid">
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span className="navbar-toggler-icon"></span>
-          </button>
-          <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul className="navbar-nav mx-auto mb-2 mb-lg-0">
-              <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="/">
-                  Home
-                </a>
-              </li>
+const styles = {
+    navbar: {
+        display: "flex",
+        justifyContent: "space-between",
+        alignItems: "center",
+        padding: "10px 20px",
+        backgroundColor: "#333",
+        color: "#fff",
+    },
+    logo: {
+        fontSize: "24px",
+        fontWeight: "bold",
+    },
+    navLinks: {
+        display: "flex",
+        alignItems: "center",
+        gap: "15px",
+    },
+    link: {
+        textDecoration: "none",
+        color: "#fff",
+        fontSize: "18px",
+    },
+    user: {
+        fontSize: "18px",
+        marginRight: "10px",
+    },
+    button: {
+        backgroundColor: "#ff5555",
+        color: "#fff",
+        border: "none",
+        padding: "8px 12px",
+        borderRadius: "4px",
+        cursor: "pointer",
+    },
+};
 
-              <li className="nav-item dropdown">
-                <a
-                  className="nav-link dropdown-toggle"
-                  href="/"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  Schemes & Policies
-                </a>
-                <ul className="dropdown-menu">
-                  <li>
-                    <a className="dropdown-item" href="../components/Scheme.js">
-                      Central Goverment Schemes
-                    </a>
-                  </li>
-                  <li>
-                    <a className="dropdown-item" href="/">
-                      Ministry of Ayush Schemes
-                    </a>
-                  </li>
-                </ul>
-              </li>
-
-              <li className="nav-item dropdown">
-                <a
-                  className="nav-link dropdown-toggle"
-                  href="/"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  Network
-                </a>
-                <ul className="dropdown-menu">
-                  <li>
-                    <a className="dropdown-item" href="/">
-                      Action
-                    </a>
-                  </li>
-                  <li>
-                    <a className="dropdown-item" href="/">
-                      Another action
-                    </a>
-                  </li>
-                  <li>
-                    <hr className="dropdown-divider" />
-                  </li>
-                  <li>
-                    <a className="dropdown-item" href="/">
-                      Something else here
-                    </a>
-                  </li>
-                </ul>
-              </li>
-
-              <li className="nav-item dropdown">
-                <a
-                  className="nav-link dropdown-toggle"
-                  href="/"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  Get Featured
-                </a>
-                <ul className="dropdown-menu">
-                  <li>
-                    <a className="dropdown-item" href="/">
-                      Explore
-                    </a>
-                  </li>
-                  <li>
-                    <a className="dropdown-item" href="/startups">
-                      Showcase Startup
-                    </a>
-                  </li>
-                </ul>
-              </li>
-
-              <li className="nav-item">
-                <a className="nav-link" href="/resources">
-                  Resources
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="/about">
-                  About
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-    </div>
-  );
-}
+export default Navbar;

@@ -1,49 +1,33 @@
-import Nav from "./components/Nav";
-import Slider from "./components/Slider";
-import Home from "./components/Home/Home";
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { AuthProvider } from "./auth/AuthContext";
+import Navbar from "./components/Nav"; // Import the new Navbar
+import SignIn from "./auth/Forms/SignIn";
+import SignUp from "./auth/Forms/SignUp";
+import Home from "./components/Home/Home"
 import Footer from "./components/Footer";
-import About from "./components/About/about";
-import "./App.css";
-// import { useAuth0 } from "@auth0/auth0-react";
 
-// import Register from "./components/Register";
 
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import { Startup } from "./components/Startup/Startup";
-import { NewStartup } from "./components/Startup/NewStartup";
-import Resources from "./components/Resources/Resources";
 
-function App() {
-  // const { loginWithRedirect } = useAuth0();
-  return (
-    <div>
-      {/* <button onClick={() => loginWithRedirect()}>Log In</button>; */}
-      <Nav />
-      <Router>
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <div>
-                {" "}
-                <div className="App">
-                  {" "}
-                  <Slider />{" "}
-                </div>{" "}
-                <Home />{" "}
-              </div>
-            }
-          />
-          <Route path="/startups" element={<Startup />} />
-          <Route path="/AddNewStartup" element={<NewStartup />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/resources" element={<Resources />} />
-        </Routes>
-        {/* About route */}
-      </Router>
-      <Footer />
-    </div>
-  );
-}
+const App = () => {
+    return (
+        <AuthProvider>
+            <Router>
+                <Navbar /> {/* Use the Navbar */}
+                <Routes>
+                 
+                    <Route path="/" element={<Home/>}/>
+                    <Route path="/signin" element={<SignIn />} />
+                    <Route path="/signup" element={<SignUp />} />
+                    
+                </Routes>
+                <Footer/>
+                
+            </Router>
+        </AuthProvider>
+    );
+};
+
+
 
 export default App;
