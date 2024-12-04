@@ -149,6 +149,11 @@ export default function Nav() {
                   About
                 </a>
               </li>
+              <li className="nav-item">
+                <a className="nav-link" href="/message">
+                  Message
+                </a>
+              </li>
             </ul>
           </div>
         </div>

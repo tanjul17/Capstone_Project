@@ -11,6 +11,7 @@ import "./App.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { Startup } from "./components/Startup/Startup";
 import { NewStartup } from "./components/Startup/NewStartup";
+import ContactForm from "./components/Message/ContactForm";
 
 function App() {
   // const { loginWithRedirect } = useAuth0();
@@ -36,6 +37,8 @@ function App() {
           <Route path="/startups" element={<Startup />} />
           <Route path="/AddNewStartup" element={<NewStartup />} />
           <Route path="/about" element={<About />} />
+          <Route path="/message" element={< ContactForm/>} />
+          <Route path="/startup-form" element={<NewStartup />} />
         </Routes>
          {/* About route */}
       </Router>

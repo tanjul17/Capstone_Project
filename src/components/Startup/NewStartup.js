@@ -1,7 +1,6 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-
 
 export const NewStartup = () => {
     const [name, setName] = useState("");
@@ -10,98 +9,136 @@ export const NewStartup = () => {
     const [phone, setPhone] = useState("");
     const [industry, setIndustry] = useState("");
     const [city, setCity] = useState("");
-    const [startupLogo, setStartupLogo] = useState("");
+    const [website, setWebsite] = useState("");
+    const [fundingStage, setFundingStage] = useState("");
+    const [teamSize, setTeamSize] = useState("");
+    const [startupLogo, setStartupLogo] = useState(null); // File for startup logo
+    const [proposalFile, setProposalFile] = useState(null); // File for startup proposal
     const navigate = useNavigate();
 
-    const handleNameChange = (e) => {
-        setName(e.target.value);
+    const uploadToCloudinary = async (file, folder) => {
+        if (!file) return null;
+
+        const formData = new FormData();
+        formData.append('file', file);
+        formData.append('upload_preset', process.env.REACT_APP_CLOUDINARY_UPLOAD_PRESET); // Use environment variable
+        formData.append('folder', folder); // Organize files into folders
+
+        const response = await axios.post(
+            process.env.REACT_APP_CLOUDINARY_URL, // Use environment variable
+            formData
+        );
+
+        return response.data.secure_url; // Cloudinary URL for the uploaded file
     };
-    const handleEmailChange = (e) => {
-        setEmail(e.target.value);
-    };
-    const handleStartupNameChange = (e) => {
-        setStartupName(e.target.value);
-    };
-    const handlePhoneChange = (e) => {
-        setPhone(e.target.value);
-    };
-    const handleIndustryChange = (e) => {
-        setIndustry(e.target.value);
-    };
-    const handleCityChange = (e) => {
-        setCity(e.target.value);
-    };
-    //Base64 file-
-    // const handleStartupLogoChange = (e) => {
-    //     // setStartupLogo(e.target.value);
-    //     var reader = new FileReader();
-    //     reader.readAsDataURL(e.target.files[0]);
-    //     reader.onload = () => {
-    //         // console.log(reader.result); //base 64 encoded string 
-    //         setStartupLogo(reader.result);
-    //     };
-    //     reader.onerror = (error) => {
-    //         console.log(error);
-    //     }
-    // };
-    const handleStartupLogoChange = (e) => {
-        let x = e.target.value.slice(12);
-        setStartupLogo(x);
-    }
+
     const submitBtn = async (e) => {
         e.preventDefault();
         try {
-            // eslint-disable-next-line
-            const response = await axios.post('http://localhost:4000/startup/addNewStartup', { name, email, startupName, phone, industry, city, startupLogo }, { headers: { "Content-Type": "multipart/form-data" } });
+            const logoUrl = await uploadToCloudinary(startupLogo, 'startup_logos'); // Upload logo
+            const proposalUrl = await uploadToCloudinary(proposalFile, 'startup_proposals'); // Upload proposal
+
+            const response = await axios.post(
+                process.env.REACT_APP_API_URL, // Use environment variable
+                {
+                    name,
+                    email,
+                    startupName,
+                    phone,
+                    industry,
+                    city,
+                    website,
+                    fundingStage,
+                    teamSize,
+                    logoUrl, // Cloudinary URL for logo
+                    proposalUrl, // Cloudinary URL for proposal
+                },
+                { headers: { "Content-Type": "application/json" } }
+            );
+
             navigate("/startups");
-        }
-        catch (error) {
+        } catch (error) {
             alert("Error occurred while adding your startup");
         }
-    }
+    };
+
     return (
-        <div className=''>
-            <h2 className='text-center mt-4'>Fill out this form to add your own startup to our showcase </h2>
-            <form onSubmit={submitBtn} className='shadow rounded p-5 m-5'>
-                <div className='row justify-content-center '>
+        <div>
+            <h2 className="text-center mt-4">Fill out this form to add your startup</h2>
+            <form onSubmit={submitBtn} className="shadow rounded p-5 m-5">
+                {/* Founder and Contact Information */}
+                <div className="row justify-content-center">
                     <div className="mb-3 col-md-5">
                         <label htmlFor="name" className="form-label">Founder Name</label>
-                        <input onChange={handleNameChange} value={name} required type="text" className="form-control" id="name" />
+                        <input onChange={(e) => setName(e.target.value)} value={name} required type="text" className="form-control" id="name" />
                     </div>
                     <div className="mb-3 col-md-5">
-                        <label htmlFor="exampleInputEmail1" className="form-label">Email address</label>
-                        <input onChange={handleEmailChange} value={email} required type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
+                        <label htmlFor="email" className="form-label">Email Address</label>
+                        <input onChange={(e) => setEmail(e.target.value)} value={email} required type="email" className="form-control" id="email" />
                     </div>
-
                 </div>
-                <div className='row justify-content-center mt-4'>
+
+                {/* Startup Details */}
+                <div className="row justify-content-center mt-4">
                     <div className="mb-3 col-md-5">
                         <label htmlFor="startupName" className="form-label">Startup Name</label>
-                        <input onChange={handleStartupNameChange} value={startupName} required type="text" className="form-control" id="startupName" />
+                        <input onChange={(e) => setStartupName(e.target.value)} value={startupName} required type="text" className="form-control" id="startupName" />
                     </div>
                     <div className="mb-3 col-md-5">
                         <label htmlFor="phone" className="form-label">Phone</label>
-                        <input onChange={handlePhoneChange} value={phone} required type="text" className="form-control" id="phone" />
+                        <input onChange={(e) => setPhone(e.target.value)} value={phone} required type="text" className="form-control" id="phone" />
                     </div>
                 </div>
-                <div className='row justify-content-center mt-4'>
-                    <div className="mb-1 col-md-5">
-                        <label htmlFor="Industry" className="form-label">Industry</label>
-                        <input onChange={handleIndustryChange} value={industry} required type="text" className="form-control" id="Industry" />
+
+                {/* Additional Information */}
+                <div className="row justify-content-center mt-4">
+                    <div className="mb-3 col-md-5">
+                        <label htmlFor="industry" className="form-label">Industry</label>
+                        <input onChange={(e) => setIndustry(e.target.value)} value={industry} required type="text" className="form-control" id="industry" />
                     </div>
                     <div className="mb-3 col-md-5">
-                        <label htmlFor="City" className="form-label">City</label>
-                        <input onChange={handleCityChange} value={city} required type="text" className="form-control" id="City" />
+                        <label htmlFor="city" className="form-label">City</label>
+                        <input onChange={(e) => setCity(e.target.value)} value={city} required type="text" className="form-control" id="city" />
                     </div>
                 </div>
+                <div className="row justify-content-center mt-4">
+                    <div className="mb-3 col-md-5">
+                        <label htmlFor="website" className="form-label">Website URL</label>
+                        <input onChange={(e) => setWebsite(e.target.value)} value={website} type="url" className="form-control" id="website" />
+                    </div>
+                    <div className="mb-3 col-md-5">
+                        <label htmlFor="fundingStage" className="form-label">Funding Stage</label>
+                        <input onChange={(e) => setFundingStage(e.target.value)} value={fundingStage} type="text" className="form-control" id="fundingStage" />
+                    </div>
+                </div>
+
+                {/* File Uploads */}
                 <div className="custom-file my-4" style={{ marginLeft: "8.5%" }}>
-                    <input name='startupLogo' onChange={handleStartupLogoChange} type="file" className="custom-file-input" id="startupLogo" accept="image/*" />
+                    <input
+                        onChange={(e) => setStartupLogo(e.target.files[0])}
+                        type="file"
+                        className="custom-file-input"
+                        id="startupLogo"
+                        accept="image/*"
+                    />
                     <label className="custom-file-label" htmlFor="startupLogo">Choose Startup Logo</label>
                 </div>
+                <div className="custom-file my-4" style={{ marginLeft: "8.5%" }}>
+                    <input
+                        onChange={(e) => setProposalFile(e.target.files[0])}
+                        type="file"
+                        className="custom-file-input"
+                        id="proposalFile"
+                        accept="application/pdf"
+                    />
+                    <label className="custom-file-label" htmlFor="proposalFile">Upload Proposal (PDF)</label>
+                </div>
+
+                {/* Submit Button */}
                 <div className="d-flex justify-content-end">
                     <button type="submit" className="btn btn-primary">Submit</button>
                 </div>
             </form>
         </div>
-    )
-}
+    );
+};
