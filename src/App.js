@@ -11,6 +11,7 @@ import "./App.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { Startup } from "./components/Startup/Startup";
 import { NewStartup } from "./components/Startup/NewStartup";
+import ContactForm from "./components/Message/ContactForm";
 import Resources from "./components/Resources/Resources";
 
 function App() {
@@ -37,6 +38,8 @@ function App() {
           <Route path="/startups" element={<Startup />} />
           <Route path="/AddNewStartup" element={<NewStartup />} />
           <Route path="/about" element={<About />} />
+          <Route path="/message" element={< ContactForm/>} />
+          <Route path="/startup-form" element={<NewStartup />} />
           <Route path="/resources" element={<Resources />} />
         </Routes>
         {/* About route */}
