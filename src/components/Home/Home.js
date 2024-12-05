@@ -114,6 +114,9 @@ export default function Home() {
             <div className="card mb-4" style={cardStyle}>
               <img src="./2.png" className="card-img-top" alt="Mentorship" />
               <div className="card-body text-center">
+            <div className="card " style={Styles}>
+              <img src="./2.png" className="card-img-top" alt="..." />
+              <div className="card-body ">
                 <h5 className="card-title">Mentorship</h5>
                 <p className="card-text">
                   Some quick example text to build on the card title and make up
@@ -159,7 +162,6 @@ export default function Home() {
   Startup Portal
 </button>
       </div>
-
       <div
         className="offcanvas offcanvas-start"
         data-bs-scroll="true"
