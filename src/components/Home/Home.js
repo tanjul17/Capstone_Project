@@ -7,33 +7,17 @@ export default function Home() {
   };
   return (
     <>
+    <div class="hero-title"><h1>Private market investing made easy</h1>
+        <h2 class="hero-subtitle">Raise fund. Start syndicate. Drive growth</h2>
+        <button class="btn-investor">For Investor</button>
+        <button class="btn-startup">For Startup</button>
+        </div>
       <div className="main">
-        <h1 className="header">Key Initiatives</h1>
+      
+        <h1 className="header">What we do?</h1>
         <p className="para">
-          Information and Resources: Providing comprehensive information and
-          resources for startups, including guides, articles, videos, and tools
-          to help entrepreneurs understand the startup ecosystem, legal
-          requirements, funding options, and business development. Registration
-          and Compliance: Offering a streamlined process for startup
-          registration and compliance with relevant government regulations and
-          tax authorities. This can include assistance with business entity
-          registration, licenses, permits, and taxation. Funding and Investment:
-          Facilitating access to funding opportunities, such as grants, loans,
-          venture capital, and angel investment networks. This may involve
-          listing funding programs and connecting startups with potential
-          investors. Networking and Collaboration: Creating a platform for
-          startups to network with mentors, industry experts, other startups,
-          and potential partners. This often includes hosting networking events,
-          workshops, and matchmaking sessions. Mentorship and Training:
-          Providing mentorship programs and training resources to help startups
-          refine their business models, develop marketing strategies, and
-          improve their overall operations. Market Access and Promotion:
-          Assisting startups in reaching their target markets and customers.
-          This can include marketing support, access to market research data,
-          and promotion through the portal's network. Incubation and
-          Acceleration: Offering incubation and acceleration programs that
-          provide physical workspace, access to infrastructure, and intensive
-          mentoring to help startups grow rapidly.
+        We pave the way for founders, investors, and LPs to strengthen their journey in the Indian startup ecosystem.
+        Enter the ecosystem with LetsVenture.
         </p>
       </div>
 
@@ -154,47 +138,20 @@ export default function Home() {
                   Some quick example text to build on the card title and make up
                   the bulk of the card's content.
                 </p>
-              </div>
-
-              <div className="card-body">
+                <div className="card-body">
                 <a class="btn btn-primary" href="/" role="button">
                   View
                 </a>
               </div>
+              </div>
+
+              
             </div>
           </div>
         </div>
       </div>
-      <div
-        class="offcanvas offcanvas-start"
-        data-bs-scroll="true"
-        tabindex="-1"
-        id="offcanvasWithBothOptions"
-        aria-labelledby="offcanvasWithBothOptionsLabel"
-      >
-        <div class="offcanvas-header">
-          <h3 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">
-            Minister
-          </h3>
-          <button
-            type="button"
-            class="btn-close"
-            data-bs-dismiss="offcanvas"
-            aria-label="Close"
-          ></button>
-        </div>
-        <div class="offcanvas-body">
-          <img src="./minister.png" alt="..." />
-          <h2>Shri Sarbananda Sonowal</h2>
-          <p>Hon'ble Cabinet Minister</p>
-          <p>E_Mail: minister-ayush@nic.in</p>
-          <p>Phone: 011-24651955,011-24651935</p>
-          <p>
-            Work Allocated: Ministry of Ayush & Ministry of Ports, Shipping and
-            Waterways..
-          </p>
-        </div>
-      </div>
+      
+      
     </>
   );
 }

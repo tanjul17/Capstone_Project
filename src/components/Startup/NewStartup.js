@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 
-export const NewStartup = () => {
+export default function NewStartup () {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [startupName, setStartupName] = useState("");

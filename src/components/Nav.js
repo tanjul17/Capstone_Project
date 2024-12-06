@@ -1,146 +1,64 @@
-import React from "react";
-import { useAuth0 } from "@auth0/auth0-react";
-import "../components/nav.css";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import { useAuth } from "../auth/AuthContext";
+import "./Navbar.css"; // Import the CSS file
 
-export default function Nav() {
-  const { loginWithRedirect } = useAuth0();
+const Navbar = () => {
+    const { user, logout } = useAuth();
+    const [menuOpen, setMenuOpen] = useState(false); // State for toggling the menu
 
-  return (
-    <div>
-      <nav className="navbar navbar-expand-lg bg-body-tertiary">
-        <div className="container-fluid">
-          <a className="navbar-brand" href="/">
-            <img src="./Logo.png" alt="Bootstrap" width="50%" height="auto" />
-          </a>
-          <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
-              <li className="d-flex">
-                <div className="nav-link active" aria-current="page" href="/">
-                  <button id="log" onClick={() => loginWithRedirect()}>
-                    Register LogIn
-                  </button>
-                </div>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
+    const toggleMenu = () => setMenuOpen(!menuOpen); // Function to toggle the menu
 
-      <nav className="navbar navbar-expand-lg ">
-        <div className="container-fluid">
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span className="navbar-toggler-icon"></span>
-          </button>
-          <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul className="navbar-nav mx-auto mb-2 mb-lg-0">
-              <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="/">
-                  Home
-                </a>
-              </li>
+    return (
+        <nav className="navbar">
+            <div className="logo">
+                <span className="icon">↑</span> 
+                <Link to="/" className="link">
+                    Startup Accelerator
+                </Link>
+            </div>
+            <div className={`navLinks ${menuOpen ? "open" : ""}`}>
+                <Link to="/" className="link">
+                    Products
+                </Link>
+                <Link to="/investors" className="link">
+                    For Investors
+                </Link>
+                <Link to="/founders" className="link">
+                    For Founders
+                </Link>
+                <Link to="/resources" className="link">
+                    Resources
+                </Link>
+                <Link to="/events" className="link">
+                    Events
+                </Link>
+                {user ? (
+                    <>
+                        <span className="user">Welcome, {user.name}</span>
+                        <button className="button" onClick={logout}>
+                            Logout
+                        </button>
+                    </>
+                ) : (
+                    <>
+                        <Link to="/signin" className="signInButton">
+                            Sign In
+                        </Link>
+                        <Link to="/signup" className="signUpButton">
+                            Sign Up
+                        </Link>
+                    </>
+                )}
+            </div>
+            {/* Hamburger Icon for mobile view */}
+            <div className="hamburger" onClick={toggleMenu}>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </nav>
+    );
+};
 
-              <li className="nav-item dropdown">
-                <a
-                  className="nav-link dropdown-toggle"
-                  href="/"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  Schemes & Policies
-                </a>
-                <ul className="dropdown-menu">
-                  <li>
-                    <a className="dropdown-item" href="../components/Scheme.js">
-                      Central Goverment Schemes
-                    </a>
-                  </li>
-                  <li>
-                    <a className="dropdown-item" href="/">
-                      Ministry of Ayush Schemes
-                    </a>
-                  </li>
-                </ul>
-              </li>
-
-              <li className="nav-item dropdown">
-                <a
-                  className="nav-link dropdown-toggle"
-                  href="/"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  Network
-                </a>
-                <ul className="dropdown-menu">
-                  <li>
-                    <a className="dropdown-item" href="/">
-                      Action
-                    </a>
-                  </li>
-                  <li>
-                    <a className="dropdown-item" href="/">
-                      Another action
-                    </a>
-                  </li>
-                  <li>
-                    <hr className="dropdown-divider" />
-                  </li>
-                  <li>
-                    <a className="dropdown-item" href="/">
-                      Something else here
-                    </a>
-                  </li>
-                </ul>
-              </li>
-
-              <li className="nav-item dropdown">
-                <a
-                  className="nav-link dropdown-toggle"
-                  href="/"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  Get Featured
-                </a>
-                <ul className="dropdown-menu">
-                  <li>
-                    <a className="dropdown-item" href="/">
-                      Explore
-                    </a>
-                  </li>
-                  <li>
-                    <a className="dropdown-item" href="/startups">
-                      Showcase Startup
-                    </a>
-                  </li>
-                </ul>
-              </li>
-
-              <li className="nav-item">
-                <a className="nav-link" href="/resources">
-                  Resources
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="/about">
-                  About
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-    </div>
-  );
-}
+export default Navbar;

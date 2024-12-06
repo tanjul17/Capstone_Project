@@ -1,0 +1,179 @@
+/* Navbar.css */
+
+/* General styles */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 50px;
+    background-color: #f7fafc;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+    font-weight: bold;
+    color: #3182ce;
+}
+
+.icon {
+    font-size: 30px;
+    color: #3182ce;
+    margin-right: 10px;
+}
+
+.navLinks {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Hide the links and show hamburger on small screens */
+.navLinks.mobile {
+    display: none;
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    cursor: pointer;
+}
+
+.hamburger div {
+    width: 25px;
+    height: 3px;
+    background-color: #3182ce;
+    border-radius: 5px;
+}
+
+/* When the hamburger is clicked, display the links */
+.navLinks.open {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align to the left */
+    gap: 10px;
+    padding-left: 20px; /* Add some padding on the left */
+}
+
+.link {
+    text-decoration: none;
+    color: #4a5568;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+/* User and button styles */
+.user {
+    font-size: 16px;
+    color: #4a5568;
+    margin-right: 15px;
+}
+
+.button {
+    background-color: #e53e3e;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.signInButton {
+    text-decoration: none;
+    background-color: transparent;
+    color: #3182ce;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 500;
+    border: 1px solid #3182ce;
+    display: inline-block;
+    text-align: center;
+}
+
+.signUpButton {
+    text-decoration: none;
+    background-color: #3182ce;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 500;
+    display: inline-block;
+    text-align: center;
+}
+
+/* Media Queries for responsiveness */
+@media screen and (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .logo {
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+
+    .navLinks {
+        display: none;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .navLinks.open {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-start; /* Align links to the left */
+        padding-left: 20px; /* Align to left with padding */
+    }
+
+    .link {
+        font-size: 14px;
+    }
+
+    .user, .button {
+        margin-top: 10px;
+    }
+
+    .signInButton, .signUpButton {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .navbar {
+        padding: 10px;
+    }
+
+    .logo {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+
+    .icon {
+        font-size: 24px;
+    }
+
+    .link {
+        font-size: 12px;
+    }
+
+    .user {
+        font-size: 14px;
+    }
+
+    .signInButton, .signUpButton {
+        font-size: 12px;
+        padding: 6px 12px;
+    }
+}

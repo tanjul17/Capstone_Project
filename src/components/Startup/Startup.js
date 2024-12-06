@@ -5,7 +5,7 @@ import { StartupComponent } from './StartupComponent';
 import { Link } from 'react-router-dom';
 
 
-export const Startup = () => {
+export default function (){
     const startups = useSelector(state => state.startup.data.startups);
     console.log(startups);
     const dispatch = useDispatch();
