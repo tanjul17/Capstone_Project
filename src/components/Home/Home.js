@@ -2,88 +2,85 @@ import React from "react";
 import "../Home/Home.css";
 
 export default function Home() {
-  const Styles = {
+  const cardStyle = {
     width: "25rem",
+    boxShadow: "0 4px 8px rgba(0,0,0,0.2)",
+    borderRadius: "10px",
   };
+
+  const buttonStyle = {
+    margin: "10px",
+    backgroundColor: "#007bff",
+    borderColor: "#007bff",
+    color: "#fff",
+  };
+
   return (
     <>
-    <div class="hero-title"><h1>Private market investing made easy</h1>
-        <h2 class="hero-subtitle">Raise fund. Start syndicate. Drive growth</h2>
-        <button class="btn-investor">For Investor</button>
-        <button class="btn-startup">For Startup</button>
-        </div>
-      <div className="main">
-      
-        <h1 className="header">What we do?</h1>
-        <p className="para">
-        We pave the way for founders, investors, and LPs to strengthen their journey in the Indian startup ecosystem.
-        Enter the ecosystem with LetsVenture.
+      {/* Hero Section */}
+      <div className="hero-title text-center">
+        <h1>Private market investing made easy</h1>
+        <h2 className="hero-subtitle">
+          Raise fund. Start syndicate. Drive growth
+        </h2>
+        <button className="btn btn-success mx-2">For Investor</button>
+        <button className="btn btn-info mx-2">For Startup</button>
+      </div>
+
+      {/* What We Do Section */}
+      <div className="main text-center my-5">
+        <h1 className="header text-primary">Key Initiatives</h1>
+        <p className="para text-secondary">
+          Providing comprehensive resources for startups, including guides,
+          articles, videos, and tools. Streamlined processes for registration,
+          compliance, and funding access.
         </p>
       </div>
 
-      <div className="Scheme">
-        <h1 className="header">Scheme & Policies</h1>
-
+      {/* Schemes Section */}
+      <div className="Scheme my-5">
+        <h1 className="header text-primary">Schemes & Policies</h1>
         <div className="container">
           <div className="row">
             <div className="col-md-4">
-              <div className="card border-success mb-3">
+              <div className="card border-success mb-3" style={cardStyle}>
                 <div className="card-header text-center">Notifications</div>
                 <div className="card-body text-center">
-                  {/* <h5 className="card-title">$0/mo</h5> */}
-                  <p className="card-text">
-                    Stay on top of all policy and regulatory updates that are
-                    important for your next startup move.
-                  </p>
-                  <div className="container">
-                    <div className="d-flex justify-content-center">
-                      <a href="/" className="btn btn-primary">
-                        View
-                      </a>
-                    </div>
-                  </div>
+                  <p>Stay on top of all policy and regulatory updates.</p>
+                  <a href="/" className="btn btn-primary" style={buttonStyle}>
+                    View
+                  </a>
                 </div>
               </div>
             </div>
+
             <div className="col-md-4">
-              <div className="card border-success mb-3">
+              <div className="card border-success mb-3" style={cardStyle}>
                 <div className="card-header text-center">
-                  Central Goverment Schems
+                  Central Government Schemes
                 </div>
                 <div className="card-body text-center">
-                  {/* <h5 className="card-title">$15/mo</h5> */}
-                  <p className="card-text">
-                    An aggregation of all Startup focused schemes and policies
-                    by the Central Government of India.
+                  <p>
+                    Startup-focused schemes and policies by the Central
+                    Government.
                   </p>
-                  <div className="container">
-                    <div className="d-flex justify-content-center">
-                      <a href="/" className="btn btn-primary">
-                        View
-                      </a>
-                    </div>
-                  </div>
+                  <a href="/" className="btn btn-primary" style={buttonStyle}>
+                    View
+                  </a>
                 </div>
               </div>
             </div>
+
             <div className="col-md-4">
-              <div className="card border-success mb-3">
+              <div className="card border-success mb-3" style={cardStyle}>
                 <div className="card-header text-center">
-                  State Goverment Schemes
+                  State Government Schemes
                 </div>
                 <div className="card-body text-center">
-                  {/* <h5 className="card-title">Special title treatment</h5> */}
-                  <p className="card-text">
-                    Know about the States’ and UTs’ startup policies for Indian
-                    startups.
-                  </p>
-                  <div className="container">
-                    <div className="d-flex justify-content-center">
-                      <a href="/" className="btn btn-primary">
-                        View
-                      </a>
-                    </div>
-                  </div>
+                  <p>Startup policies from States and UTs.</p>
+                  <a href="/" className="btn btn-primary" style={buttonStyle}>
+                    View
+                  </a>
                 </div>
               </div>
             </div>
@@ -91,67 +88,65 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="StartupEcoSystem">
-        <h1 className="header">Startup Ecosystem</h1>
-
+      {/* Startup Ecosystem Section */}
+      <div className="StartupEcoSystem my-5">
+        <h1 className="header text-primary text-center">Startup Ecosystem</h1>
         <div className="container">
-          <div className="row justify-content-between">
-            <div className="card" style={Styles}>
-              <img src="./1.png" className="card-img-top" alt="..." />
-              <div className="card-body">
+          <div className="row justify-content-around">
+            {/* Card 1 */}
+            <div className="card mb-4" style={cardStyle}>
+              <img src="./1.png" className="card-img-top" alt="Network" />
+              <div className="card-body text-center">
                 <h5 className="card-title">Network</h5>
-                <p className="card-text">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
-                </p>
-              </div>
-
-              <div className="card-body">
-                <a class="btn btn-primary" href="/" role="button">
+                <p>Build strong connections within the startup ecosystem.</p>
+                <a href="/" className="btn btn-primary" style={buttonStyle}>
                   View
                 </a>
               </div>
             </div>
 
-            <div className="card " style={Styles}>
-              <img src="./2.png" className="card-img-top" alt="..." />
-              <div className="card-body ">
+            {/* Card 2 */}
+            <div className="card mb-4" style={cardStyle}>
+              <img src="./2.png" className="card-img-top" alt="Mentorship" />
+              <div className="card-body text-center">
                 <h5 className="card-title">Mentorship</h5>
-                <p className="card-text">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
-                </p>
-              </div>
-
-              <div className="card-body">
-                <a class="btn btn-primary" href="/" role="button">
+                <p>Get guided by industry experts to scale your startup.</p>
+                <a href="/" className="btn btn-primary" style={buttonStyle}>
                   View
                 </a>
               </div>
             </div>
 
-            <div className="card" style={Styles}>
-              <img src="./3.png" className="card-img-top" alt="..." />
-              <div className="card-body">
+            {/* Card 3 */}
+            <div className="card mb-4" style={cardStyle}>
+              <img src="./3.png" className="card-img-top" alt="Showcase" />
+              <div className="card-body text-center">
                 <h5 className="card-title">Showcase</h5>
-                <p className="card-text">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
+                <p>
+                  Showcase your startup to a network of potential investors.
                 </p>
-                <div className="card-body">
-                <a class="btn btn-primary" href="/" role="button">
+                <a href="/" className="btn btn-primary" style={buttonStyle}>
                   View
                 </a>
               </div>
-              </div>
-
-              
             </div>
           </div>
         </div>
       </div>
-      
-      
+
+      {/* CTA Buttons */}
+      <div className="text-center my-5">
+        <button className="btn btn-success mx-2" style={buttonStyle}>
+          Investor Portal
+        </button>
+        <button
+          className="btn btn-info mx-2"
+          style={buttonStyle}
+          onClick={() => (window.location.href = "/startup-form")}
+        >
+          Startup Portal
+        </button>
+      </div>
     </>
   );
 }
