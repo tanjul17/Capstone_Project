@@ -8,8 +8,8 @@ import SignIn from "./auth/Forms/SignIn";
 import SignUp from "./auth/Forms/SignUp";
 
 // New Components (from Harsh-feature/dashboard-startup/investor)
-import { Startup } from "./components/Startup/Startup";
-import { NewStartup } from "./components/Startup/NewStartup";
+import Startup from "./components/Startup/Startup";
+import NewStartup from "./components/Startup/NewStartup";
 import ContactForm from "./components/Message/ContactForm";
 import Resources from "./components/Resources/Resources";
 
@@ -38,7 +38,7 @@ const App = () => {
           <Route path="/resources" element={<Resources />} />
 
           {/* Duplicate path "/startup-form" for clarity */}
-          <Route path="/startup-form" element={<NewStartup />} />
+          {/* <Route path="/startup-form" element={<NewStartup />} /> */}
         </Routes>
         <Footer /> {/* Consistent Footer for the entire app */}
       </Router>
