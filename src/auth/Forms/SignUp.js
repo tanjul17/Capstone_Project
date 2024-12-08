@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import "./SignUp.css";
 
 const SignUp = () => {
-    const [activeTab, setActiveTab] = useState("startup");
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -13,15 +12,14 @@ const SignUp = () => {
         e.preventDefault();
         // Mock registration (Save details to local storage for simplicity)
         const userData = { 
-            type: activeTab,
             name, 
             email 
         };
-        
+
         // Store user data in local storage
-        localStorage.setItem(`${activeTab}User`, JSON.stringify(userData));
-        
-        alert(`Sign up as ${activeTab} successful! Please sign in.`);
+        localStorage.setItem("user", JSON.stringify(userData));
+
+        alert("Sign up successful! Please sign in.");
         navigate("/signin");
     };
 
@@ -29,36 +27,18 @@ const SignUp = () => {
         <div className="signup-container">
             <div className="signup-wrapper">
                 <h2 className="signup-title">Create Your Account</h2>
-                
-                {/* Tabs */}
-                <div className="signup-tabs">
-                    <button
-                        type="button"
-                        onClick={() => setActiveTab("startup")}
-                        className={`signup-tab ${activeTab === "startup" ? "active-startup" : ""}`}
-                    >
-                        Startup
-                    </button>
-                    <button
-                        type="button"
-                        onClick={() => setActiveTab("investor")}
-                        className={`signup-tab ${activeTab === "investor" ? "active-investor" : ""}`}
-                    >
-                        Investor
-                    </button>
-                </div>
 
                 {/* Sign Up Form */}
                 <div className="signup-form-container">
                     <form onSubmit={handleSignUp} className="signup-form">
                         <div className="form-group">
                             <label htmlFor="name" className="form-label">
-                                {activeTab === "startup" ? "Startup Name" : "Full Name"}
+                                Full Name
                             </label>
                             <input
                                 id="name"
                                 type="text"
-                                placeholder={activeTab === "startup" ? "Enter startup name" : "Enter your full name"}
+                                placeholder="Enter your full name"
                                 value={name}
                                 onChange={(e) => setName(e.target.value)}
                                 required
@@ -96,14 +76,14 @@ const SignUp = () => {
                         <div className="form-group">
                             <button
                                 type="submit"
-                                className={`signup-button ${activeTab === "startup" ? "startup-button" : "investor-button"}`}
+                                className="signup-button"
                             >
-                                Sign Up as {activeTab === "startup" ? "Startup" : "Investor"}
+                                Sign Up
                             </button>
                         </div>
                     </form>
                 </div>
-                
+
                 {/* Footer Link */}
                 <div className="signup-footer">
                     <p className="login-text">

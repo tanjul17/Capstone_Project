@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import { useAuth } from "../AuthContext";
 import { useNavigate } from "react-router-dom";
-import "./signin.css" ;
+import "./signin.css";
 
 const SignIn = () => {
-    const [activeTab, setActiveTab] = useState("startup");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const { login } = useAuth();
@@ -12,23 +11,14 @@ const SignIn = () => {
 
     const handleSignIn = (e) => {
         e.preventDefault();
-        // Mock login validation with different credentials for startup and investor
-        const credentials = {
-            startup: { email: "startup@test.com", password: "startup123" },
-            investor: { email: "investor@test.com", password: "investor123" }
-        };
+        // Mock login validation with a single set of credentials
+        const credentials = { email: "user@test.com", password: "user123" };
 
-        const currentCredentials = credentials[activeTab];
-
-        if (email === currentCredentials.email && password === currentCredentials.password) {
-            login({ 
-                name: activeTab === "startup" ? "Test Startup" : "Test Investor", 
-                email,
-                type: activeTab
-            });
+        if (email === credentials.email && password === credentials.password) {
+            login({ name: "Test User", email });
             navigate("/");
         } else {
-            alert(`Invalid ${activeTab} credentials`);
+            alert("Invalid credentials");
         }
     };
 
@@ -36,24 +26,6 @@ const SignIn = () => {
         <div className="signin-container">
             <div className="signin-wrapper">
                 <h2 className="signin-title">Sign in to your Account</h2>
-                
-                {/* Tabs */}
-                <div className="signin-tabs">
-                    <button
-                        type="button"
-                        onClick={() => setActiveTab("startup")}
-                        className={`signin-tab ${activeTab === "startup" ? "active-startup" : ""}`}
-                    >
-                        Startup
-                    </button>
-                    <button
-                        type="button"
-                        onClick={() => setActiveTab("investor")}
-                        className={`signin-tab ${activeTab === "investor" ? "active-investor" : ""}`}
-                    >
-                        Investor
-                    </button>
-                </div>
 
                 {/* Sign In Form */}
                 <div className="signin-form-container">
@@ -89,14 +61,14 @@ const SignIn = () => {
                         <div className="form-group">
                             <button
                                 type="submit"
-                                className={`signin-button ${activeTab === "startup" ? "startup-button" : "investor-button"}`}
+                                className="signin-button"
                             >
-                                Sign In as {activeTab === "startup" ? "Startup" : "Investor"}
+                                Sign In
                             </button>
                         </div>
                     </form>
                 </div>
-                
+
                 {/* Footer Link */}
                 <div className="signin-footer">
                     <a href="/forgot-password" className="forgot-password-link">
