@@ -23,10 +23,10 @@ const Navbar = () => {
         <Link to="/" className="link">
           Products
         </Link>
-        <Link to="/investors" className="link">
+        <Link to="/investor" className="link">
           For Investors
         </Link>
-        <Link to="/founders" className="link">
+        <Link to="/forfounders" className="link">
           For Founders
         </Link>
         <Link to="/resources" className="link">
@@ -105,7 +105,7 @@ const Navbar = () => {
           </a>
           <ul className="dropdown-menu">
             <li>
-              <Link className="dropdown-item" to="/explore">
+              <Link className="dropdown-item" to="/startupsAll">
                 Explore
               </Link>
             </li>

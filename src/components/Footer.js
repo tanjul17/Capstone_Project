@@ -10,8 +10,7 @@ export default function Footer() {
           style={{ backgroundColor: "#1c2331" }}
         >
           <section
-            className="d-flex justify-content-between p-1"
-            style={{ backgroundColor: "#ffffff" }}
+           
           >
             <div>
               <a href="/" className="text-white me-4">
@@ -143,10 +142,7 @@ export default function Footer() {
               </div>
             </div>
           </section>
-          <div
-            className="text-center p-3"
-            style={{ backgroundColor: "rgba(0, 0, 0, 0.2)" }}
-          ></div>
+          
         </footer>
       </div>
     </div>
