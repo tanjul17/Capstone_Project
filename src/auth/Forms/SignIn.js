@@ -6,17 +6,21 @@ import "./signin.css";
 const SignIn = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [isAdmin, setIsAdmin] = useState(false); // State for admin selection
     const { login } = useAuth();
     const navigate = useNavigate();
 
     const handleSignIn = (e) => {
         e.preventDefault();
-        // Mock login validation with a single set of credentials
-        const credentials = { email: "user@test.com", password: "user123" };
+        // Mock login validation for user and admin
+        const userCredentials = { email: "user@test.com", password: "user123" };
+        const adminCredentials = { email: "admin@test.com", password: "admin123" };
+
+        let credentials = isAdmin ? adminCredentials : userCredentials;
 
         if (email === credentials.email && password === credentials.password) {
-            login({ name: "Test User", email });
-            navigate("/");
+            login({ name: isAdmin ? "Admin User" : "Test User", email, role: isAdmin ? "admin" : "user" });
+            navigate(isAdmin ? "/admin-dashboard" : "/");
         } else {
             alert("Invalid credentials");
         }
@@ -58,11 +62,23 @@ const SignIn = () => {
                                 className="form-input"
                             />
                         </div>
+
+                        {/* Admin login option */}
                         <div className="form-group">
-                            <button
-                                type="submit"
-                                className="signin-button"
-                            >
+                            <label htmlFor="isAdmin" className="form-label">
+                                Sign in as Admin
+                            </label>
+                            <input
+                                type="checkbox"
+                                id="isAdmin"
+                                checked={isAdmin}
+                                onChange={(e) => setIsAdmin(e.target.checked)}
+                                className="form-checkbox"
+                            />
+                        </div>
+
+                        <div className="form-group">
+                            <button type="submit" className="signin-button">
                                 Sign In
                             </button>
                         </div>
