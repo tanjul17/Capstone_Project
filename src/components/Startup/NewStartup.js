@@ -87,17 +87,21 @@ const NewStartup = () => {
   };
 
   return (
-    <div>
-      <h2 className="text-center mt-4">
-        Fill out this form to add your startup
+    <div className="container mt-4">
+      <h2 className="text-center mb-4" >
+        Welcome to Our Startup Accelerator!
       </h2>
-      <form onSubmit={submitBtn} className="shadow rounded p-5 m-5">
-        {/* Founder and Contact Information */}
-        <div className="row justify-content-center">
-          <div className="mb-3 col-md-5">
-            <label htmlFor="name" className="form-label">
-              Founder Name
-            </label>
+      
+      <div className="text-center mb-4">
+        <img src="https://static.investindia.gov.in/s3fs-public/2024-03/The%20Role%20of%20Government%20Initiatives%20in%20Boosting%20Startups.jpg" alt="Startup" className="img-fluid mb-3" style={{ maxWidth: '60%' }} />
+        <h2 className="text-center mt-4" >Fill out this form to join us.</h2>
+        <p>Upload your startup details below</p>
+      </div>
+
+      <form onSubmit={submitBtn} className="shadow rounded p-4">
+        <div className="row">
+          <div className="col-md-6 mb-3">
+            <label htmlFor="name" className="form-label">Founder Name</label>
             <input
               onChange={(e) => setName(e.target.value)}
               value={name}
@@ -107,10 +111,8 @@ const NewStartup = () => {
               id="name"
             />
           </div>
-          <div className="mb-3 col-md-5">
-            <label htmlFor="email" className="form-label">
-              Email Address
-            </label>
+          <div className="col-md-6 mb-3">
+            <label htmlFor="email" className="form-label">Email Address</label>
             <input
               onChange={(e) => setEmail(e.target.value)}
               value={email}
@@ -122,12 +124,9 @@ const NewStartup = () => {
           </div>
         </div>
 
-        {/* Startup Details */}
-        <div className="row justify-content-center mt-4">
-          <div className="mb-3 col-md-5">
-            <label htmlFor="startupName" className="form-label">
-              Startup Name
-            </label>
+        <div className="row mt-4">
+          <div className="col-md-6 mb-3">
+            <label htmlFor="startupName" className="form-label">Startup Name</label>
             <input
               onChange={(e) => setStartupName(e.target.value)}
               value={startupName}
@@ -137,10 +136,8 @@ const NewStartup = () => {
               id="startupName"
             />
           </div>
-          <div className="mb-3 col-md-5">
-            <label htmlFor="phone" className="form-label">
-              Phone
-            </label>
+          <div className="col-md-6 mb-3">
+            <label htmlFor="phone" className="form-label">Phone</label>
             <input
               onChange={(e) => setPhone(e.target.value)}
               value={phone}
@@ -152,12 +149,9 @@ const NewStartup = () => {
           </div>
         </div>
 
-        {/* Additional Information */}
-        <div className="row justify-content-center mt-4">
-          <div className="mb-3 col-md-5">
-            <label htmlFor="industry" className="form-label">
-              Industry
-            </label>
+        <div className="row mt-4">
+          <div className="col-md-6 mb-3">
+            <label htmlFor="industry" className="form-label">Industry</label>
             <input
               onChange={(e) => setIndustry(e.target.value)}
               value={industry}
@@ -167,10 +161,8 @@ const NewStartup = () => {
               id="industry"
             />
           </div>
-          <div className="mb-3 col-md-5">
-            <label htmlFor="city" className="form-label">
-              City
-            </label>
+          <div className="col-md-6 mb-3">
+            <label htmlFor="city" className="form-label">City</label>
             <input
               onChange={(e) => setCity(e.target.value)}
               value={city}
@@ -182,11 +174,9 @@ const NewStartup = () => {
           </div>
         </div>
 
-        <div className="row justify-content-center mt-4">
-          <div className="mb-3 col-md-5">
-            <label htmlFor="website" className="form-label">
-              Website URL
-            </label>
+        <div className="row mt-4">
+          <div className="col-md-6 mb-3">
+            <label htmlFor="website" className="form-label">Website URL</label>
             <input
               onChange={(e) => setWebsite(e.target.value)}
               value={website}
@@ -195,10 +185,8 @@ const NewStartup = () => {
               id="website"
             />
           </div>
-          <div className="mb-3 col-md-5">
-            <label htmlFor="fundingStage" className="form-label">
-              Funding Stage
-            </label>
+          <div className="col-md-6 mb-3">
+            <label htmlFor="fundingStage" className="form-label">Funding Stage</label>
             <input
               onChange={(e) => setFundingStage(e.target.value)}
               value={fundingStage}
@@ -209,11 +197,8 @@ const NewStartup = () => {
           </div>
         </div>
 
-        {/* File Uploads */}
         <div className="mb-3">
-          <label htmlFor="startupLogo" className="form-label">
-            Choose Startup Logo
-          </label>
+          <label htmlFor="startupLogo" className="form-label">Choose Startup Logo</label>
           <input
             onChange={(e) => setStartupLogo(e.target.files[0])}
             type="file"
@@ -223,9 +208,7 @@ const NewStartup = () => {
           />
         </div>
         <div className="mb-3">
-          <label htmlFor="proposalFile" className="form-label">
-            Upload Proposal (PDF)
-          </label>
+          <label htmlFor="proposalFile" className="form-label">Upload Proposal (PDF)</label>
           <input
             onChange={(e) => setProposalFile(e.target.files[0])}
             type="file"
@@ -235,9 +218,8 @@ const NewStartup = () => {
           />
         </div>
 
-        {/* Submit Button */}
-        <div className="d-flex justify-content-end">
-          <button type="submit" className="btn btn-primary" disabled={loading}>
+        <div className="d-flex justify-content-center">
+          <button type="submit" className="btn btn-primary" disabled={loading} style={{ fontSize: '16px', padding: '10px 20px' }}>
             {loading ? "Submitting..." : "Submit"}
           </button>
         </div>
