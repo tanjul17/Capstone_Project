@@ -35,7 +35,7 @@ export default function Resources() {
         <div className="carousel-inner">
           <div className="carousel-item active">
             <img
-              src="https://www.logodesign.net/images/artical/auto-shope-logo/design-auto-shop-transport-company-logos-thumb.png"
+              src="https://img.freepik.com/free-photo/business-people-shaking-hands-together_53876-13391.jpg?t=st=1733727874~exp=1733731474~hmac=82c1c27bef5177cc8bbfa684faa30e66364300a5944cd27bf0649ea86f3502b9&w=900"
               className="d-block w-100"
               alt="Guides and Articles"
             />
