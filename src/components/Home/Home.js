@@ -140,13 +140,13 @@ export default function Home() {
       {/* CTA Buttons */}
       <div className="text-center my-5">
       <button className="btn btn-success mx-2" onClick={() => navigate('/InvestorDashboard')} >Investor-Portal</button>
-        <button
-          className="btn btn-info mx-2"
-          style={buttonStyle}
-          onClick={() => (window.location.href = "/startup-form")}
-        >
-          Startup Portal
-        </button>
+      <button
+  className="btn btn-primary mx-2"
+  onClick={() => navigate('/StartupDashboard')}
+>
+  Startup-Portal
+</button>
+
       </div>
     </>
   );
