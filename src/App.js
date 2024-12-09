@@ -12,6 +12,9 @@ import Startup from "./components/Startup/Startup";
 import NewStartup from "./components/Startup/NewStartup";
 import ContactForm from "./components/Message/ContactForm";
 import Resources from "./components/Resources/Resources";
+import StartupPage from "./components/Startup/StartupPage";
+import InvestorDashboard from "./components/Investor/InvestorDashboard";
+import InvestorPage from "./components/Investor/InvestorPage";
 
 const App = () => {
   return (
@@ -36,7 +39,9 @@ const App = () => {
           <Route path="/AddNewStartup" element={<NewStartup />} />
           <Route path="/message" element={<ContactForm />} />
           <Route path="/resources" element={<Resources />} />
-
+          <Route path="/StartupPage" element={<StartupPage />} />
+          <Route path="/InvestorPage" element={<InvestorPage />} />
+          <Route path="/InvestorDashboard" element={<InvestorDashboard />} />
           {/* Duplicate path "/startup-form" for clarity */}
           {/* <Route path="/startup-form" element={<NewStartup />} /> */}
         </Routes>

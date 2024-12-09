@@ -1,0 +1,125 @@
+/* investor.css */
+
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+  }
+  
+  .header {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .para {
+    font-size: 1.1rem;
+    line-height: 1.8;
+  }
+  
+  /* Carousel Section */
+  .carousel img {
+    height: 500px;
+    object-fit: cover;
+  }
+  
+  .carousel-caption h5 {
+    font-size: 2rem;
+    font-weight: bold;
+  }
+  
+  .carousel-caption p {
+    font-size: 1.2rem;
+  }
+  
+  /* Benefits Section */
+  .benefits {
+    background-color: #ffffff;
+    padding: 40px 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .benefits .row {
+    margin-top: 20px;
+  }
+  
+  .benefits i {
+    color: #ff6f61;
+    transition: transform 0.3s ease;
+  }
+  
+  .benefits i:hover {
+    transform: scale(1.2);
+  }
+  
+  .benefits h5 {
+    font-size: 1.5rem;
+    margin-top: 10px;
+  }
+  
+  .benefits p {
+    font-size: 1rem;
+    color: #666;
+  }
+  
+  /* Button Section */
+  button {
+    font-size: 1.2rem;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  button:hover {
+    transform: scale(1.05);
+  }
+  
+  .btn-success {
+    background-color: #28a745;
+    color: white;
+    border: none;
+  }
+  
+  .btn-success:hover {
+    background-color: #218838;
+  }
+  
+  .btn-info {
+    background-color: #17a2b8;
+    color: white;
+    border: none;
+  }
+  
+  .btn-info:hover {
+    background-color: #117a8b;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .carousel img {
+      height: 300px;
+    }
+  
+    .header {
+      font-size: 2rem;
+    }
+  
+    .para {
+      font-size: 1rem;
+    }
+  
+    .benefits h5 {
+      font-size: 1.3rem;
+    }
+  
+    .benefits p {
+      font-size: 0.9rem;
+    }
+  
+    button {
+      font-size: 1rem;
+    }
+  }
+  

@@ -1,0 +1,120 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 13px;
+    padding: 0;
+    background-color: #f9f9f9;
+  }
+  
+  /* Carousel */
+  .carousel img {
+    height: 500px;
+    object-fit: cover;
+  }
+  
+  .carousel-caption h5 {
+    font-size: 2rem;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  }
+  
+  .carousel-caption p {
+    font-size: 1.2rem;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+  }
+  
+  /* Section Headers */
+  .header {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .para {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    max-width: 800px;
+    margin: 0 auto;
+    color: #666;
+  }
+  
+  /* Benefits Section */
+  .benefits .row {
+    margin-top: 40px;
+  }
+  
+  .benefits h5 {
+    font-size: 1.5rem;
+    margin-top: 15px;
+    font-weight: bold;
+  }
+  
+  .benefits p {
+    color: #555;
+  }
+  
+  .fa-lightbulb {
+    color: #ffbf00;
+  }
+  
+  .fa-users {
+    color: #007bff;
+  }
+  
+  .fa-chart-line {
+    color: #28a745;
+  }
+  
+  /* Buttons */
+  button {
+    font-size: 1.1rem;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+  }
+  
+  button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Success Button */
+  .btn-success {
+    background-color: #28a745;
+    border-color: #28a745;
+  }
+  
+  .btn-success:hover {
+    background-color: #218838;
+    border-color: #1e7e34;
+  }
+  
+  /* Info Button */
+  .btn-info {
+    background-color: #007bff;
+    border-color: #007bff;
+  }
+  
+  .btn-info:hover {
+    background-color: #0056b3;
+    border-color: #004085;
+  }
+  
+  /* Container */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  /* Footer Section */
+  .text-center {
+    margin-top: 30px;
+  }
+  .carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: black; /* Change the color of the arrows */
+}
+
+  

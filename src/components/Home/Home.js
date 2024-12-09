@@ -1,7 +1,9 @@
 import React from "react";
 import "../Home/Home.css";
+import { useNavigate } from 'react-router-dom';
 
 export default function Home() {
+  const navigate = useNavigate();
   const cardStyle = {
     width: "25rem",
     boxShadow: "0 4px 8px rgba(0,0,0,0.2)",
@@ -23,8 +25,9 @@ export default function Home() {
         <h2 className="hero-subtitle">
           Raise fund. Start syndicate. Drive growth
         </h2>
-        <button className="btn btn-success mx-2">For Investor</button>
-        <button className="btn btn-info mx-2">For Startup</button>
+        <button className="btn btn-success mx-2" onClick={() => navigate('/InvestorPage')} >For Investor</button>
+        <button className="btn btn-info mx-2" onClick={() => navigate('/startupPage')}
+        >For Startup</button>
       </div>
 
       {/* What We Do Section */}
@@ -136,9 +139,7 @@ export default function Home() {
 
       {/* CTA Buttons */}
       <div className="text-center my-5">
-        <button className="btn btn-success mx-2" style={buttonStyle}>
-          Investor Portal
-        </button>
+      <button className="btn btn-success mx-2" onClick={() => navigate('/InvestorDashboard')} >Investor-Portal</button>
         <button
           className="btn btn-info mx-2"
           style={buttonStyle}
