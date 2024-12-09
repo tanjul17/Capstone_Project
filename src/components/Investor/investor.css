@@ -1,0 +1,127 @@
+.hero-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #001f4d;
+    color: white;
+    padding: 50px;
+  }
+  
+  .hero-content {
+    max-width: 50%;
+  }
+  
+  .hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+  }
+  
+  .hero-content .highlight {
+    color: #3db4f2;
+  }
+  
+  .hero-content ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 20px 0;
+    font-size: 1.2rem;
+  }
+  
+  .hero-buttons {
+    display: flex;
+    gap: 15px;
+  }
+  
+  .btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+  
+  .btn.primary {
+    background-color: #3db4f2;
+    color: white;
+  }
+  
+  .btn.secondary {
+    background-color: transparent;
+    color: #3db4f2;
+    border: 2px solid #3db4f2;
+  }
+  
+  .hero-image img {
+    max-width: 400px;
+    border-radius: 50%;
+    height: auto;
+  }
+  
+  @media (max-width: 768px) {
+    .hero-section {
+      flex-direction: column; /* Stacks the content vertically */
+      text-align: center;
+    }
+  
+    .hero-content {
+      max-width: 100%;
+      margin-bottom: 20px;
+    }
+  
+    .hero-image img {
+      display: none;
+    }
+  }
+  
+  .stats-section {
+    text-align: center;
+    padding: 2rem 1rem;
+    background-color: #f0f7ff;
+  }
+  
+  .stats-heading {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #003366;
+    margin-bottom: 2rem;
+  }
+  
+  .stats-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-top: 2rem; /* Space above the stats section */
+  }
+  
+  .stat-card {
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    width: 220px;
+    text-align: center;
+    transition: transform 0.3s ease; /* Smooth scale effect */
+  }
+  
+  .stat-card:hover {
+    transform: scale(1.05); /* Slight zoom effect on hover */
+  }
+  
+  .stat-icon img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 1rem;
+  }
+  
+  .stat-value {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #003366;
+  }
+  
+  .stat-description {
+    font-size: 1rem;
+    color: #555;
+  }
+  
